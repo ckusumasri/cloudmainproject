@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Paragraph changed.";
+
+
+jQuery.ajax({
+            url: "http://localhost:8085/cloudmainproject/webapi/myresource/vendor",
+            type: "GET",
+            contentType: 'application/json',
+			dataType:"json",
+            success: function(resultData) {
+				var s=JSON.stringify(resultData);
+				document.write(s);
+				
+            },
+
+            timeout: 120000,
+        });
+}
+
+</script>
+</head>
+<body>
+<h1> vendor<h1>
+
+<p id="demo">A Paragraph</p>
+
+
+<button type="button" onclick="myFunction()"> clickme</button>
+</body>
+</html>
