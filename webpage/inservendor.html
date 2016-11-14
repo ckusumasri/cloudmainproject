@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+function myFunction() {
+    //document.getElementById('demo').innerHTML = "Paragraph changed.";
+	var formData = $('#myform').serializeArray();
+	var data = {};
+	$(formData ).each(function(index, obj){
+		data[obj.name] = obj.value;
+	});
+
+	jQuery.ajax({
+        type: "POST",
+		url: "http://localhost:8085/cloudmainproject/webapi/vendor/insertVendor",
+        data: JSON.stringify(data),
+        success: function(data){
+			 console.log(data);
+			 alert(data);
+		},
+        contentType : "application/json"
+    });
+}
+
+</script>
+</head>
+<body>
+<h1> vendor</h1>
+
+<p id="demo">A Paragraph</p>
+
+
+<form id="myform"  >
+
+   Name:<input type="text" name="vendorname"><br>
+   Email:<input type="text" name="email"><br>
+   Contact:<input type="number" name="contact"><br>
+</form>
+<button onclick="myFunction()" >Submit</button>
+
+
+
+</body>
+</html>
