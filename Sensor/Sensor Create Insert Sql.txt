@@ -1,0 +1,15 @@
+CREATE TABLE sensor
+(
+sensor_name varchar(255) NOT NULL,
+sensor_id INT(30) NOT NULL,
+sensor_no INT(30),
+sensor_location varchar(255),
+sensor_type varchar(255),
+sensor_uptime varchar(255),
+sensor_used boolean not null default 0,
+PRIMARY KEY (sensor_id)
+);
+
+INSERT INTO `schema`.`sensor` (`sensor_name`,`sensor_id`,`sensor_no`,`sensor_location`,`sensor_type`,`sensor_used`) VALUES ('Sensor1',1,30,'San Jose','GPS',true);
+INSERT INTO `schema`.`sensor` (`sensor_name`,`sensor_id`,`sensor_no`,`sensor_location`,`sensor_type`,`sensor_used`) VALUES ('Sensor2',2,50,'Santa Clara','GPS',true);
+INSERT INTO `schema`.`sensor` (`sensor_name`,`sensor_id`,`sensor_no`,`sensor_location`,`sensor_type`,`sensor_used`) VALUES ('Sensor3',3,10,'Milpitas','GPS',true);
